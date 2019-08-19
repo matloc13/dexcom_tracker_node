@@ -12,11 +12,12 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/dexcom', passport.authenticate('oauth2', {
-  scope: ['offline_access']
+  scope: ['profile']
 }))
 
 router.get('/dexcom/redirect', passport.authenticate('oauth2'), (req, res) => {
-  res.send('signed in')
+  // res.send('signed in')
+  res.redirect('/')
 })
 
 module.exports = router

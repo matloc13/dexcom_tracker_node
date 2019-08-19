@@ -14,7 +14,7 @@ passport.use(
     clientID: process.env.clientID,
     clientSecret: process.env.clientSecret,
     callbackURL: '/auth/dexcom/redirect'
-  }, (accessToken, refreshToken, profile, done) => {
+  }, (accessToken, refreshToken, profile, cb) => {
     // passport callback
     console.log(profile);
     console.log(accessToken);
