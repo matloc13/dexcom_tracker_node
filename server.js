@@ -2,6 +2,9 @@
 const express = require('express')
 const app = express()
 
+// controller routes
+const authRoutes = require('./controllers/auth-routes')
+
 // passport
 const passport = require('passport')
 const passportSetup = require('./config/passport-setup')
@@ -12,9 +15,6 @@ const cookieSession = require('cookie-session')
 // mongoose
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGODB_URI
-
-// controller routes
-const authRoutes = require('./controllers/auth-routes')
 
 //config .env
 require('dotenv').config()

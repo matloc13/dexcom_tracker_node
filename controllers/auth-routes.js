@@ -12,11 +12,14 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/dexcom', passport.authenticate('oauth2', {
-  scope: ['profile']
+  // session: true,
+  // scope: ['profile']
 }))
 
-router.get('/dexcom/redirect', passport.authenticate('oauth2'), (req, res) => {
-  // res.send('signed in')
+router.get('/dexcom/redirect', passport.authenticate('oauth2', {
+  failedRedirect: '/auth/login'
+}), (req, res) => {
+
   res.redirect('/')
 })
 
