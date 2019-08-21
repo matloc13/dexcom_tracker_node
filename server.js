@@ -18,6 +18,7 @@ const mongoURI = process.env.MONGODB_URI
 
 //config .env
 require('dotenv').config()
+const errorHandler = require('errorhandler')
 
 // mongoose connect
 mongoose.connection.once('open', () => {
@@ -37,7 +38,9 @@ app.use(cookieSession({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-
+// app.use(errorHandler({
+//   log: errorNotification
+// }))
 app.use('/auth', authRoutes)
 
 
