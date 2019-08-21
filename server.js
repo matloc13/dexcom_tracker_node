@@ -11,6 +11,7 @@ const passportSetup = require('./config/passport-setup')
 
 // cookie session
 const cookieSession = require('cookie-session')
+const cors = require('cors');
 
 // mongoose
 const mongoose = require('mongoose')
@@ -19,11 +20,24 @@ const mongoURI = process.env.MONGODB_URI
 //config .env
 require('dotenv').config()
 
+// cors whitelist
+const whitelist = ['http://localhost:3001']
+const corsOptions = {
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('NOT Allowed By Cors'))
+    }
+  }
+}
+
 // middleware
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
   keys: [process.env.cookieKey]
 }))
+
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -37,10 +51,7 @@ mongoose.connect(mongoURI, {
   useFindAndModify: false
 })
 
-
-
 app.use('/auth', authRoutes)
-
 
 // HOME
 

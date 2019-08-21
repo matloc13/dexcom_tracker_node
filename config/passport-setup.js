@@ -1,6 +1,5 @@
 const passport = require('passport')
 const OAuth2Strategy = require('passport-oauth2')
-// const BearerStrategy = require('passport-http-bearer')
 require('dotenv').config()
 const User = require('../models/user')
 const qs = require('querystring')
@@ -8,6 +7,7 @@ const http = require('https')
 
 
 passport.serializeUser((user, cb) => {
+  // console.log(user);
   cb(null, user.id)
 })
 
@@ -30,6 +30,14 @@ passport.use(
     skipUserProfile: false
   }, (accessToken, refreshToken, profile, cb) => {
     // passport callback
+    // console.log(accessToken);
+    // console.log('accesToken ^^');
+    // console.log(refreshToken);
+    // console.log('refresh token ^^^');
+    // console.log(profile);
+    // console.log('profile ^^^');
+    // console.log(cb);
+    // console.log('callback ^^');
     User.findOne({
       dexcomId: accessToken
     }).then((cUser) => {
