@@ -18,7 +18,14 @@ const mongoURI = process.env.MONGODB_URI
 
 //config .env
 require('dotenv').config()
-const errorHandler = require('errorhandler')
+
+// middleware
+app.use(cookieSession({
+  maxAge: 24 * 60 * 60 * 1000,
+  keys: [process.env.cookieKey]
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
 // mongoose connect
 mongoose.connection.once('open', () => {
@@ -31,16 +38,7 @@ mongoose.connect(mongoURI, {
 })
 
 
-// middleware
-app.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
-  keys: [process.env.cookieKey]
-}))
-app.use(passport.initialize())
-app.use(passport.session())
-// app.use(errorHandler({
-//   log: errorNotification
-// }))
+
 app.use('/auth', authRoutes)
 
 

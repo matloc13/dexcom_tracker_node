@@ -17,9 +17,6 @@ passport.deserializeUser((id, cb) => {
   })
 })
 
-
-
-
 passport.use(
   new OAuth2Strategy({
     // authorizationURL: process.env.SAND_AUTHORIZATION_URL,

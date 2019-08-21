@@ -13,7 +13,7 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/dexcom', passport.authenticate('oauth2', {
-  // session: true
+  session: true
   // scope: ['profile']
 }))
 
