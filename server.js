@@ -22,16 +22,16 @@ const mongoURI = process.env.MONGODB_URI
 require('dotenv').config()
 
 // cors whitelist
-const whitelist = ['http://localhost:3001']
-const corsOptions = {
-  origin: function(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
-    } else {
-      callback(new Error('NOT Allowed By Cors'))
-    }
-  }
-}
+// const whitelist = ['http://localhost:3000', 'http://localhost:3001']
+// const corsOptions = {
+//   origin: function(origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('NOT Allowed By Cors'))
+//     }
+//   }
+// }
 
 // middleware
 app.use(cookieSession({
@@ -41,7 +41,12 @@ app.use(cookieSession({
 
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(cors(corsOptions))
+app.use(cors({
+  origin: "http://localhost:3001",
+  methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
+  credentials: true,
+  preflightContinue: true
+}))
 
 // mongoose connect
 mongoose.connection.once('open', () => {

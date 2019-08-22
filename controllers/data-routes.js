@@ -30,24 +30,22 @@ router.get('/access', (req, res) => {
   };
 
   var req = http.request(options, (res) => {
-    var chunks = [];
+    var chunks = []
 
     res.on("data", (chunk) => {
-      chunks.push(chunk);
-    });
+      chunks.push(chunk)
+    })
 
     res.on("end", () => {
       body = Buffer.concat(chunks);
       console.log(body.toString());
-
     })
-
-  });
-
-  req.end();
-  res.render('info.ejs', {
-    info: JSON.parse(body)
   })
+  req.end();
+  // res.render('info.ejs', {
+  //   info: JSON.parse(body)
+  // })
+  res.status(200).json(body)
   // res.send(body.calibrations.toString())
 })
 
