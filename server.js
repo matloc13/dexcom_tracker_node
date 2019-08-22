@@ -5,6 +5,7 @@ const app = express()
 // controller routes
 const authRoutes = require('./controllers/auth-routes')
 const dataRoutes = require('./controllers/data-routes')
+const profileRoutes = require('./controllers/profile-routes')
 
 // passport
 const passport = require('passport')
@@ -41,6 +42,9 @@ app.use(cookieSession({
 
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cors({
   origin: "http://localhost:3001",
   methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
@@ -60,6 +64,7 @@ mongoose.connect(mongoURI, {
 
 app.use('/auth', authRoutes)
 app.use('/data', dataRoutes)
+app.use('/profile', profileRoutes)
 
 // HOME
 

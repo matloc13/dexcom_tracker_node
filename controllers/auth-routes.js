@@ -11,6 +11,7 @@ router.get('/login/success', (req, res) => {
       success: true,
       message: "user has authenticated",
       user: req.user
+
     })
   }
 });
@@ -18,8 +19,8 @@ router.get('/login/success', (req, res) => {
 router.get('/logout', (req, res) => {
   // res.send('logging out')
   req.logout()
-  res.redirect('http://localhost:3001/welcome')
-  // res.redirect('/');
+  // res.redirect('http://localhost:3001/welcome')
+  res.redirect('/');
 })
 
 router.get('/dexcom', passport.authenticate('oauth2', {
@@ -29,8 +30,8 @@ router.get('/dexcom', passport.authenticate('oauth2', {
 
 router.get('/dexcom/redirect', passport.authenticate('oauth2'), (req, res) => {
   // res.send(req.user)
-  res.redirect('http://localhost:3001/welcome')
-  // res.redirect('/data/access')
+  // res.redirect('http://localhost:3001/welcome')
+  res.redirect('/profile')
 })
 
 

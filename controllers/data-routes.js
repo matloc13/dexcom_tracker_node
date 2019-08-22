@@ -3,50 +3,67 @@ const router = express.Router()
 const qs = require('querystring')
 const http = require('https')
 
-let body = {}
 
-const authCheck = (req, res, next) => {
-  if (!req.user) {
-    res.redirect('/auth/login')
-  } else {
-    next()
-  }
-}
+router.get('/range', (req, res) => {
+  // console.log(req.user);
 
-router.get('/access', (req, res) => {
-  console.log(req.user);
-
-  // res.status(200).json(req.user)
-
-
-  var options = {
+  let data = ''
+  let options = {
     "method": "GET",
     "hostname": "api.dexcom.com",
     "port": null,
     "path": "/v2/users/self/dataRange",
     "headers": {
-      "authorization": `"Bearer ${req.user.dexcomId}`,
+      "authorization": `Bearer ${req.user.dexcomId}`,
     }
-  };
+  }
+  let requ = http.request(options, (resp) => {
+    let chunks = []
 
-  var req = http.request(options, (res) => {
-    var chunks = []
-
-    res.on("data", (chunk) => {
-      chunks.push(chunk)
+    resp.on("data", (chunk) => {
+      data += chunk
     })
 
-    res.on("end", () => {
-      body = Buffer.concat(chunks);
-      console.log(body.toString());
+    resp.on("end", () => {
+      // body = Buffer.concat(chunks)
+      let body = JSON.parse(data)
+      res.render('info.ejs', {
+        data: body
+      })
     })
   })
-  req.end();
-  // res.render('info.ejs', {
-  //   info: JSON.parse(body)
-  // })
-  res.status(200).json(body)
-  // res.send(body.calibrations.toString())
+  requ.end()
+  // res.send('hello')
+})
+
+router.get('/egvs', (req, res) => {
+  let data = ''
+  let options = {
+    "method": "GET",
+    "hostname": "api.dexcom.com",
+    "port": null,
+    "path": "/v2/users/self/egvs?startDate=2019-01-18T15:30:00&endDate=2019-03-18T15:45:00",
+    "headers": {
+      "authorization": `Bearer ${req.user.dexcomId}`,
+    }
+  }
+  let requ = http.request(options, (resp) => {
+    let chunks = []
+
+    resp.on("data", (chunk) => {
+      data += chunk
+    })
+
+    resp.on("end", () => {
+      // body = Buffer.concat(chunks)
+      let body = JSON.parse(data)
+      // res.render('egvs.ejs', {
+      //   data: body
+      // })
+      res.send(body)
+    })
+  })
+  requ.end()
 })
 
 module.exports = router
