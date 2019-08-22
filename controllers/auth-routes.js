@@ -9,16 +9,19 @@ router.get('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   // res.send('logging out')
   req.logout()
-  res.redirect('/')
+  // res.redirect('http://localhost:3001/welcome')
+  res.redirect('/');
 })
 
 router.get('/dexcom', passport.authenticate('oauth2', {
-  session: true
+  // session: true
   // scope: ['profile']
 }))
 
 router.get('/dexcom/redirect', passport.authenticate('oauth2'), (req, res) => {
-  res.redirect('/auth/login')
+  // res.send(req.user)
+  // res.redirect('http://localhost:3001/welcome')
+  res.redirect('/data/access')
 })
 
 

@@ -7,7 +7,7 @@ const http = require('https')
 
 
 passport.serializeUser((user, cb) => {
-  // console.log(user);
+  console.log(user);
   cb(null, user.id)
 })
 
@@ -39,6 +39,7 @@ passport.use(
     // console.log(cb);
     // console.log('callback ^^');
     User.findOne({
+      username: 'matloc',
       dexcomId: accessToken
     }).then((cUser) => {
       if (cUser) {
@@ -55,30 +56,34 @@ passport.use(
         })
       }
     })
+    //
+    // var options = {
+    //   "method": "GET",
+    //   "hostname": "api.dexcom.com",
+    //   "port": null,
+    //   "path": "/v2/users/self/dataRange",
+    //   "headers": {
+    //     "authorization": `"Bearer ${accessToken}`,
+    //   }
+    // };
+    //
+    // var req = http.request(options, function(res) {
+    //   var chunks = [];
+    //
+    //   res.on("data", function(chunk) {
+    //     chunks.push(chunk);
+    //   });
+    //
+    //   res.on("end", function() {
+    //     var body = Buffer.concat(chunks);
+    //     console.log(body.toString());
+    //
+    //   })
+    //
+    // });
+    //
+    // req.end();
+
+
 
   }))
-
-// var options = {
-//   "method": "GET",
-//   "hostname": "api.dexcom.com",
-//   "port": null,
-//   "path": "/v2/users/self/dataRange",
-//   "headers": {
-//     "authorization": `"Bearer ${accessToken}`,
-//   }
-// };
-//
-// var req = http.request(options, function(res) {
-//   var chunks = [];
-//
-//   res.on("data", function(chunk) {
-//     chunks.push(chunk);
-//   });
-//
-//   res.on("end", function() {
-//     var body = Buffer.concat(chunks);
-//     console.log(body.toString());
-//   });
-// });
-//
-// req.end();
