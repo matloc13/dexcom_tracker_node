@@ -28,6 +28,9 @@ const moment = require('moment')
 app.locals.format = (date) => {
   return moment(date).format('MMMM Do YYYY, h: mm: ss a')
 }
+app.locals.dateFormat = (date) => {
+  return moment(date).format('YYYY-MM-DD HH:mm:ss')
+}
 
 // cors whitelist
 // const whitelist = ['http://localhost:3000', 'http://localhost:3001']

@@ -2,24 +2,55 @@
 <html lang="en" dir="ltr">
   <head>
   <% include partials/head %>
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script> -->
     <!-- <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
     <!-- <script src="chart.js" charset="utf-8"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
-
-    <title>chart</title>
+    <title>bgs</title>
   </head>
   <body>
 <% include partials/nav %>
+<% include partials/profileNav %>
     <h1>see my egvs</h1>
+    <form class="changeDate" action="/data/egvs" method="POST">
+      <fieldset>
+        <label for="startDate">Start Date:</label>
+        <input type="text" name="startDate" placeholder="YYYY-MM-DD HH:mm">
+        <label for="endDate">End Date:</label>
+        <input type="text" name="endDate" placeholder="YYYY-MM-DD HH:mm">
+        <caption> Cannot exceed 90 days</caption>
+        <input type="submit" value="search">
+      </fieldset>
+      <caption>example: 2018-05-02 </caption>
+    </form>
+<table>
+  <tr>
+    <th>Average Blood Glucose</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+  </tr>
+  <tr>
+    <td><%=avg%></td>
+    <td><%=format(body.egvs[body.egvs.length -1].displayTime)%></td>
+    <td><%=format(body.egvs[0].displayTime)%></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Highest Blood Glucose</th>
+    <th>Date of Incident</th>
+  </tr>
+  <tr>
+    <td><%=high%></td>
+    <td><%=format(highIn)%></td>
+  </tr>
+</table>
+
 
 <!-- <div class="chart" id="chart">
 </div> -->
-<canvas id="egvs" width="400" height="400"></canvas>
+<!-- <canvas id="egvs" width="400" height="400"></canvas> -->
 
-<% body.egvs.forEach((ele) => {%>
-  <div><%= ele.value %></div> <div><%= format(ele.displayTime) %></div>
-<%})%>
 
 
 
