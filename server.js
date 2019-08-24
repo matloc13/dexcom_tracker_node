@@ -29,7 +29,7 @@ app.locals.format = (date) => {
   return moment(date).format('MMMM Do YYYY, h: mm: ss a')
 }
 
-
+// *** replace by setting options directly
 // cors whitelist
 // const whitelist = ['http://localhost:3000', 'http://localhost:3001']
 // const corsOptions = {
