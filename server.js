@@ -53,12 +53,12 @@ app.use(passport.session())
 app.use(express.urlencoded({
   extended: false
 }));
-app.use(cors({
-  origin: "http://localhost:3001",
-  methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
-  credentials: true,
-  preflightContinue: true
-}))
+// app.use(cors({
+//   origin: "http://localhost:3001",
+//   methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
+//   credentials: true,
+//   preflightContinue: true
+// }))
 app.use(express.static('public'));
 
 // mongoose connect
