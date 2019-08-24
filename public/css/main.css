@@ -3,7 +3,11 @@
 body {
   margin: 0; }
 
-.link, .mainNav a, .ul li a, .profileNav ul a, .login-container a {
+/* colors*/
+/* google Signika 400 and 700 bold*/
+/* google Barlow Condensed 300, 400*/
+/*extender*/
+.link, .mainNav a, .ul li a, .profileNav ul a, .login-container a, .profileMain .aside a {
   text-decoration: none;
   color: #58585b;
   font-family: 'Barlow Condensed', sans-serif;
@@ -38,7 +42,8 @@ body {
   .profileNav ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around; }
+    justify-content: space-around;
+    padding: 1%; }
     .profileNav ul li {
       list-style: none; }
     .profileNav ul a {
@@ -69,9 +74,60 @@ table {
     grid-column: 2/3;
     background-color: #58585b;
     padding: 30%;
-    box-shadow: 0 0 5px #345c25;
+    box-shadow: 0 0 8px #345c25;
     border-radius: 65%; }
   .login-container a {
     color: #59a618; }
+
+.profileMain {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 90px 1fr; }
+  .profileMain h3 {
+    width: 90%;
+    grid-column: 1/3;
+    text-align: right;
+    color: #5ea443; }
+  .profileMain .aside {
+    grid-column: 1;
+    height: 100; }
+    .profileMain .aside a {
+      display: block;
+      padding: 2%; }
+      .profileMain .aside a:hover {
+        background-color: #345c25;
+        color: white; }
+  .profileMain .image {
+    grid-column: 2;
+    height: 100%;
+    background-image: url("https://www.ontrackdiabetes.com/sites/default/files/content-images/2017/10/25/cgm-monitor-anthony.png");
+    background-position: left; }
+
+.home {
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr; }
+  .home h2 {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-family: 'Signika Negative', sans-serif;
+    font-weight: bold;
+    grid-column: 1/3; }
+  .home .homeDesc {
+    font-family: 'Barlow Condensed', sans-serif;
+    padding: 3%;
+    font-size: 1.3em;
+    font-weight: 300;
+    grid-column: 3/4;
+    grid-row: 2;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1); }
 
 /*# sourceMappingURL=main.css.map */

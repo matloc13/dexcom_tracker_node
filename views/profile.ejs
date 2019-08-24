@@ -6,12 +6,20 @@
   </head>
   <body>
     <% include partials/nav %>
-    <h1>hello <%= user.username %></h1>
+      <main class="profileMain">
+    <h3>Welcome to Personal CGM Tracker <%= user.username %></h3>
     <!-- <a href="/">home</a> -->
+<aside class="aside">
+  <a href="/data/range">CGM</a>
+  <a href="/data/devices">Device Settings</a>
+  <a href="/data/egvs">BG Levels</a>
+</aside>
+<div class="image">
 
-    <a href="/data/range">CGM</a>
-    <a href="/data/egvs">BG Levels</a>
-    <a href="/data/devices">Device Settings</a>
+</div>
+
+  </main>
+
     <!-- <a href="/data/stats">my statistics</a> -->
 
   </body>

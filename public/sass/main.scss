@@ -15,12 +15,80 @@
     grid-column: 2/3;
     background-color: $dexgrey;
     padding: 30%;
-    box-shadow: 0 0 5px $dexgreenDark;
+    box-shadow: 0 0 8px $dexgreenDark;
     border-radius: 65%;
   }
 
   a {
     @extend .link;
     color: $dexgreenSat;
+  }
+}
+
+.profileMain {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 90px 1fr;
+
+  h3 {
+    width: 90%;
+    grid-column: 1/3;
+    text-align: right;
+    color: $dexgreen;
+  }
+
+  .aside {
+    grid-column: 1;
+    height: 100;
+
+    a {
+      display: block;
+      @extend .link;
+      padding: 2%;
+
+      &:hover {
+        background-color: $dexgreenDark;
+        color: white;
+      }
+    }
+  }
+
+  .image {
+    grid-column: 2;
+    height: 100%;
+    background-image: url("https://www.ontrackdiabetes.com/sites/default/files/content-images/2017/10/25/cgm-monitor-anthony.png");
+    background-position: left;
+  }
+}
+
+.home {
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
+
+  h2 {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-family: 'Signika Negative', sans-serif;
+    font-weight: bold;
+    grid-column: 1/3;
+  }
+
+  .homeDesc {
+    font-family: 'Barlow Condensed', sans-serif;
+    padding: 3%;
+    font-size: 1.3em;
+    font-weight: 300;
+    grid-column: 3/4;
+    grid-row: 2;
+    color: white;
+    background-color: rgba(0, 0, 0, 10%);
   }
 }
