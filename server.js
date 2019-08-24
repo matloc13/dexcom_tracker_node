@@ -20,7 +20,7 @@ const ChartjsNode = require('chartjs-node')
 
 // mongoose
 const mongoose = require('mongoose')
-const mongoURI = process.env.MONGODB_URI
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGODB_URI_LOCAL
 
 //config .env
 require('dotenv').config()
@@ -28,9 +28,7 @@ const moment = require('moment')
 app.locals.format = (date) => {
   return moment(date).format('MMMM Do YYYY, h: mm: ss a')
 }
-app.locals.dateFormat = (date) => {
-  return moment(date).format('YYYY-MM-DD HH:mm:ss')
-}
+
 
 // cors whitelist
 // const whitelist = ['http://localhost:3000', 'http://localhost:3001']
@@ -67,7 +65,7 @@ app.use(express.static('public'));
 mongoose.connection.once('open', () => {
   console.log(`connected to mongo`)
 })
-mongoose.connect(mongoURI, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false
