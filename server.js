@@ -45,7 +45,7 @@ app.locals.format = (date) => {
 // middleware
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
-  keys: [process.env.cookieKey]
+  keys: [process.env.COOKIE_KEY]
 }))
 
 app.use(passport.initialize())
