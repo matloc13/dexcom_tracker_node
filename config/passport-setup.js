@@ -24,7 +24,9 @@ passport.use(
     // tokenURL: process.env.SAND_TOKEN_URL,
     tokenURL: process.env.TOKEN_URL,
     clientID: process.env.CLIENT_ID,
+    // clientID: process.env.CLIENT_ID_LOCAL,
     clientSecret: process.env.CLIENT_SECRET,
+    // clientSecret: process.env.CLIENT_SECRET_LOCAL,
     callbackURL: process.env.CALLBACK_URL,
     passReqToCallback: false,
     skipUserProfile: false
