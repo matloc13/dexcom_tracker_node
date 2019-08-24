@@ -38,6 +38,7 @@ passport.use(
     // console.log('profile ^^^');
     // console.log(cb);
     // console.log('callback ^^');
+
     User.findOne({
       username: 'matloc',
       dexcomId: accessToken
@@ -56,8 +57,4 @@ passport.use(
         })
       }
     })
-
-
-
-
   }))

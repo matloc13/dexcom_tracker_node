@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+  <% include partials/head %>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script> -->
+    <!-- <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
+    <!-- <script src="chart.js" charset="utf-8"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+
+    <title>chart</title>
   </head>
   <body>
+<% include partials/nav %>
     <h1>see my egvs</h1>
+
+<!-- <div class="chart" id="chart">
+</div> -->
+<canvas id="egvs" width="400" height="400"></canvas>
+
+<% body.egvs.forEach((ele) => {%>
+  <div><%= ele.value %></div> <div><%= format(ele.displayTime) %></div>
+<%})%>
+
+<% ctx = document.querySelector('#egvs') %>
+<% const bgChart = new Chart(ctx, {%>
+  <%type: 'line', %>
+  <%data: chartData%>
+<%})%>
+
+
   </body>
 </html>

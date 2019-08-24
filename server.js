@@ -15,12 +15,19 @@ const passportSetup = require('./config/passport-setup')
 const cookieSession = require('cookie-session')
 const cors = require('cors');
 
+const Chart = require('chart.js')
+const ChartjsNode = require('chartjs-node')
+
 // mongoose
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGODB_URI
 
 //config .env
 require('dotenv').config()
+const moment = require('moment')
+app.locals.format = (date) => {
+  return moment(date).format('MMMM Do YYYY, h: mm: ss a')
+}
 
 // cors whitelist
 // const whitelist = ['http://localhost:3000', 'http://localhost:3001']
@@ -51,6 +58,7 @@ app.use(cors({
   credentials: true,
   preflightContinue: true
 }))
+app.use(express.static('public'));
 
 // mongoose connect
 mongoose.connection.once('open', () => {
@@ -69,7 +77,9 @@ app.use('/profile', profileRoutes)
 // HOME
 
 app.get('/', (req, res) => {
-  res.render('home.ejs');
+  res.render('home.ejs', {
+    user: req.user
+  });
 });
 
 app.listen(process.env.PORT, () => {

@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Signika+Negative:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400&display=swap");
+body {
+  margin: 0; }
+
+.link, .mainNav a, .ul li a, .profileNav ul a, .login-container a {
+  text-decoration: none;
+  color: #58585b;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 1.3em; }
+
+.mainNav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #59a618;
+  height: 13vh;
+  place-items: center;
+  box-shadow: 0 20px #5ea443; }
+  .mainNav h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Signika Negative', sans-serif; }
+
+.ul {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  grid-column: 2; }
+  .ul li {
+    flex-direction: row;
+    list-style-type: none;
+    padding: 1%; }
+
+.profileNav {
+  width: 100%; }
+  .profileNav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+    .profileNav ul li {
+      list-style: none; }
+    .profileNav ul a {
+      padding: 3%; }
+
+table {
+  padding: 1%;
+  width: 80vw;
+  margin: 0 auto;
+  font-family: 'Signika Negative', sans-serif; }
+  table tr {
+    padding: 3%; }
+  table th {
+    padding: 3%;
+    box-shadow: 0 1px #345c25; }
+  table td {
+    padding: 3%;
+    margin: 1%;
+    background-color: #f1f8ee; }
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center; }
+  .login-container div {
+    grid-column: 2/3;
+    background-color: #58585b;
+    padding: 30%;
+    box-shadow: 0 0 5px #345c25;
+    border-radius: 65%; }
+  .login-container a {
+    color: #59a618; }
+
+/*# sourceMappingURL=main.css.map */

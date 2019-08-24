@@ -1,0 +1,38 @@
+.mainNav {
+  // position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: $dexgreenSat;
+  height: 13vh;
+  place-items: center;
+  box-shadow: 0 20px $dexgreen;
+
+  a {
+    @extend .link;
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Signika Negative', sans-serif;
+  }
+}
+
+.ul {
+  display: flex;
+  justify-content: space-around;
+  // align-items: center;
+  width: 80%;
+  grid-column: 2;
+
+  li {
+    flex-direction: row;
+    list-style-type: none;
+    padding: 1%;
+
+    a {
+      @extend .link;
+    }
+  }
+}

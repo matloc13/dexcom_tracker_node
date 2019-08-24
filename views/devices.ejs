@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<% include partials/head %>
+    <title>device settings</title>
+  </head>
+  <body>
+    <% include partials/nav %>
+    <% include partials/profileNav %>
+    <h2>Dexcom CGM</h2>
+
+  <table>
+  <tr>
+    <th>Transmitter Generation</th>
+    <th>Display Device</th>
+    <th>last upload date</th>
+  </tr>
+  <tr>
+    <td><%= data.devices[0].transmitterGeneration %></td>
+    <td><%= data.devices[0].displayDevice %></td>
+    <td><%= format(data.devices[0].lastUploadDate) %></td>
+  </tr>
+  </table>
+
+  <table>
+    <tr>
+     <th>alert name</th>
+     <th>value</th>
+     <th>enabled</th>
+    </tr>
+    <% data.devices[0].alertScheduleList[1].alertSettings.forEach((ele) => { %>
+      <td><%= ele.alertName %></td>
+      <td><%= ele.value %></td>
+      <td><%= ele.enabled %></td>
+    </tr>
+    <%})%>
+    <tr>
+
+  </table>
+
+  </body>
+</html>

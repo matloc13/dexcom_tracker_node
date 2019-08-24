@@ -1,0 +1,21 @@
+table {
+  padding: 1%;
+  width: 80vw;
+  margin: 0 auto;
+  font-family: 'Signika Negative', sans-serif;
+
+  tr {
+    padding: 3%;
+  }
+
+  th {
+    padding: 3%;
+    box-shadow: 0 1px $dexgreenDark;
+  }
+
+  td {
+    padding: 3%;
+    margin: 1%;
+    background-color: lighten($dexgreen,50%);
+  }
+}

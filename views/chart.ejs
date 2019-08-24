@@ -1,0 +1,24 @@
+
+<script src="chart.js" charset="utf-8"></script>
+
+<% const prepareBg = (bg) => {%>
+ <% const chartData = { %>
+   <% labels: [],%>
+   <% datasets: [{%>
+     <% data: [],%>
+  <% }], %>
+<% } %>
+<% bg.egvs.forEach((ele) => { %>
+  <% chartData.labels.push(ele.displayTime) %>
+  <% chartData.datasets[0].data.push(ele.value) %>
+<% }) %>
+ <% return chartData %>
+<% } %>
+<% const createChart = (data) => { %>
+  <% const ctx = document.querySelector('#egvs') %>
+<% const bgChart = new Chart(ctx, { %>
+<% type: 'line', %>
+ <% data: data %>
+<%})%>
+<% }%>
+ <% window.oncload = prepareBg(body).then(data => createChart(data))%>

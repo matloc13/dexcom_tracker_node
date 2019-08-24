@@ -1,0 +1,16 @@
+// colors
+$dexgreen: rgb(94,164,67);
+$dexgreenSat: rgb(89, 166, 24);
+$dexgreenDark: darken($dexgreen, 20%);
+$dexgrey: rgb(88,88,91); // fonts
+// google Signika 400 and 700 bold
+@import url('https://fonts.googleapis.com/css?family=Signika+Negative:400,700&display=swap'); // google Barlow Condensed 300, 400
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400&display=swap'); //extender
+
+.link {
+  text-decoration: none;
+  color: $dexgrey;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+}

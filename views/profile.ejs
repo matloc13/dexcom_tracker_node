@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+<% include partials/head %>
+    <title>profile</title>
   </head>
   <body>
+    <% include partials/nav %>
     <h1>hello <%= user.username %></h1>
-    <a href="/">home</a>
+    <!-- <a href="/">home</a> -->
 
-    <a href="/data/range">Get Range of collected data</a>
-    <a href="/data/egvs">see my numbas</a>
+    <a href="/data/range">CGM</a>
+    <a href="/data/egvs">BG Levels</a>
+    <a href="/data/devices">Device Settings</a>
+    <!-- <a href="/data/stats">my statistics</a> -->
 
   </body>
 </html>

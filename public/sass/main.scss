@@ -1,0 +1,26 @@
+@import 'reset';
+@import 'variable';
+@import 'nav';
+@import 'profileNav';
+@import 'table'; // login with dexcom
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+
+  div {
+    grid-column: 2/3;
+    background-color: $dexgrey;
+    padding: 30%;
+    box-shadow: 0 0 5px $dexgreenDark;
+    border-radius: 65%;
+  }
+
+  a {
+    @extend .link;
+    color: $dexgreenSat;
+  }
+}
