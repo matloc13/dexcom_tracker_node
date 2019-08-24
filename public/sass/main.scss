@@ -4,6 +4,11 @@
 @import 'profileNav';
 @import 'table'; // login with dexcom
 
+h2 {
+  color: $dexgreenDark;
+  padding: 1%;
+}
+
 .loginNav {
   background-color: $dexgreenSat;
 

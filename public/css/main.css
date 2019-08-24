@@ -64,6 +64,10 @@ table {
     margin: 1%;
     background-color: #f1f8ee; }
 
+h2 {
+  color: #345c25;
+  padding: 1%; }
+
 .loginNav {
   background-color: #59a618; }
   .loginNav a {
