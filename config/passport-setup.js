@@ -7,7 +7,7 @@ const http = require('https')
 
 
 passport.serializeUser((user, cb) => {
-  // console.log(user);
+  console.log(user);
   cb(null, user.id)
 })
 
@@ -21,8 +21,8 @@ passport.use(
   new OAuth2Strategy({
     // authorizationURL: process.env.SAND_AUTHORIZATION_URL,
     authorizationURL: `${process.env.AUTHORIZATION_URL}client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.CALLBACK_URL}&response_type=code&scope=offline_access&state=true`,
-    // tokenURL: process.env.SAND_TOKEN_URL,
-    tokenURL: process.env.TOKEN_URL,
+    tokenURL: process.env.SAND_TOKEN_URL,
+    // tokenURL: process.env.TOKEN_URL,
     clientID: process.env.CLIENT_ID,
     // clientID: process.env.CLIENT_ID_LOCAL,
     clientSecret: process.env.CLIENT_SECRET,
