@@ -22,7 +22,7 @@
   "homepage": "https://github.com/matloc13/dexcom_tracker_node#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartjs-node": "^1.7.1",
     "cookie-session": "^1.3.3",
     "cors": "^2.8.5",
